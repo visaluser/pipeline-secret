@@ -5,10 +5,19 @@ variables:
   AWS_ACCESS_KEY_ID: "$CI_AWS_ACCESS_KEY_ID"
   AWS_SECRET_ACCESS_KEY: "$CI_AWS_SECRET_ACCESS_KEY"
 
+ubuntu_runner_job:
+  image: ubuntu:latest
+  script:
+    - echo "This job runs on an Ubuntu latest runner."
+  only:
+    - main
+
 terraform_apply:
   stage: terraform_apply
   script:
     - terraform init
     - terraform apply
   only:
-    - master
+    - main
+
+
