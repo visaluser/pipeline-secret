@@ -1,0 +1,14 @@
+stages:
+  - terraform_apply
+
+variables:
+  AWS_ACCESS_KEY_ID: "$CI_AWS_ACCESS_KEY_ID"
+  AWS_SECRET_ACCESS_KEY: "$CI_AWS_SECRET_ACCESS_KEY"
+
+terraform_apply:
+  stage: terraform_apply
+  script:
+    - terraform init
+    - terraform apply
+  only:
+    - master
