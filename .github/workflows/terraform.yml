@@ -19,5 +19,3 @@ terraform_apply:
     - terraform apply
   only:
     - main
-
-
